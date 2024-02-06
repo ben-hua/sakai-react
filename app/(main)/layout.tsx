@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import Layout from '../../layout/layout';
 
 interface AppLayoutProps {
@@ -23,6 +24,10 @@ export const metadata: Metadata = {
     }
 };
 
-export default function AppLayout({ children }: AppLayoutProps) {
-    return <Layout>{children}</Layout>;
+export default async function AppLayout({ children }: AppLayoutProps) {
+    return <Layout>
+        <SessionProvider>
+            {children}
+        </SessionProvider>
+    </Layout>;
 }
