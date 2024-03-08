@@ -1,6 +1,5 @@
 "use client"
 
-import { getData } from "@/app/api/client/route";
 import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -8,7 +7,6 @@ import Link from "next/link";
 
 export default function ClientExample() {
     const { data: session, status } = useSession()
-    const userData = getData();
     return (
         <div className="space-y-2">
             <h1 className="text-3xl font-bold">NextAuth.js - Client Side Rendering Usage</h1>
